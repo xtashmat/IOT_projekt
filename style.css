@@ -27,7 +27,7 @@ section {
 
 h2 {
     margin-top: 0;
-    color: #2980b9;
+    color: #ebc6cd;
     font-size: 1.2rem;
 }
 
@@ -38,13 +38,21 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #3498db;
-    color: white;
+    background-color: #ebc6cd;
+    color: black;
     transition: background 0.3s;
+
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #dfa8b3; /* A slightly deeper, richer shade of the original pink */
+    transform: translateY(-2px); /* Gently lifts the button up */
+    box-shadow: 0 6px 12px rgba(235, 198, 205, 0.6); /* Creates a soft, colored glow underneath */
+}
+
+button:active {
+    transform: translateY(1px); /* Pushes the button down when physically clicked */
+    box-shadow: 0 2px 4px rgba(235, 198, 205, 0.4); /* Shrinks the shadow for tactile realism */
 }
 
 /* Специфические стили для режимов */
