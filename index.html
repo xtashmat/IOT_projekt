@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Projekt 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Ovládací panel IoT</h1>
+
+<section class="modes">
+    <h2>Režim systému</h2>
+    <p>Aktuální režim: <strong id="currentMode">Manuální</strong></p>
+    <button id="btnAuto">Zapnout Automatický mód</button>
+    <button id="btnManual">Zapnout Manuální mód</button>
+</section>
+
+<section class="led-control">
+    <h2>RGB LED (ES_1)</h2>
+    <label for="colorPicker">Vyber barvu:</label>
+    <input type="color" id="colorPicker" value="#ff0000">
+    <br><br>
+    <p>Stav LED: <strong id="ledStatus">Vypnuto</strong></p>
+    <button id="btnLedToggle">Změnit stav LED</button>
+</section>
+
+<section class="sensors">
+    <h2>Data ze senzorů</h2>
+    <div id="autoWarning" style="display: none; color: orange;">
+        <p>⚠️ Běží automatika! LED reaguje na světlo sama a data se aktualizují.</p>
+    </div>
+
+    <button id="btnRequestData">Vyžádat aktuální data (Manuální mód)</button>
+
+    <ul>
+        <li>Teplota (ES_4): <strong id="tempValue">--</strong> °C</li>
+        <li>Osvětlení (ES_2): <strong id="lightValue">--</strong> lx</li>
+    </ul>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
