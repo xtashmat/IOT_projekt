@@ -1,4 +1,4 @@
-/* Основные настройки шрифтов и фона */
+/* Základní nastavení písma a pozadí / Basic font and background settings */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f6;
@@ -9,6 +9,11 @@ body {
     line-height: 1.6;
 }
 
+
+.text{
+    text-align: center;
+}
+
 h1 {
     text-align: center;
     color: #2c3e50;
@@ -16,7 +21,7 @@ h1 {
     padding-bottom: 10px;
 }
 
-/* Стилизация секций (карточек) */
+/* Stylování sekcí (karet) / Section (card) styling */
 section {
     background: white;
     margin-bottom: 20px;
@@ -27,11 +32,12 @@ section {
 
 h2 {
     margin-top: 0;
-    color: #ebc6cd;
+    color: #865e65;
     font-size: 1.2rem;
+
 }
 
-/* Кнопки */
+/* Tlačítka / Buttons */
 button {
     padding: 10px 15px;
     margin: 5px;
@@ -41,21 +47,20 @@ button {
     background-color: #ebc6cd;
     color: black;
     transition: background 0.3s;
-
 }
 
 button:hover {
-    background-color: #dfa8b3; /* A slightly deeper, richer shade of the original pink */
-    transform: translateY(-2px); /* Gently lifts the button up */
-    box-shadow: 0 6px 12px rgba(235, 198, 205, 0.6); /* Creates a soft, colored glow underneath */
+    background-color: #dfa8b3; /* O něco hlubší a sytější odstín původní růžové / A slightly deeper, richer shade of the original pink */
+    transform: translateY(-2px); /* Jemně nadzvedne tlačítko / Gently lifts the button up */
+    box-shadow: 0 6px 12px rgba(235, 198, 205, 0.6); /* Vytvoří jemnou barevnou záři zespodu / Creates a soft, colored glow underneath */
 }
 
 button:active {
-    transform: translateY(1px); /* Pushes the button down when physically clicked */
-    box-shadow: 0 2px 4px rgba(235, 198, 205, 0.4); /* Shrinks the shadow for tactile realism */
+    transform: translateY(1px); /* Stlačí tlačítko dolů při kliknutí / Pushes the button down when physically clicked */
+    box-shadow: 0 2px 4px rgba(235, 198, 205, 0.4); /* Zmenší stín pro realistický pocit ze stisknutí / Shrinks the shadow for tactile realism */
 }
 
-/* Специфические стили для режимов */
+/* Specifické styly pro režimy / Specific styles for modes */
 #currentMode {
     padding: 2px 8px;
     border-radius: 4px;
@@ -64,7 +69,7 @@ button:active {
 .mode-auto { background-color: #27ae60; color: white; }
 .mode-manual { background-color: #e67e22; color: white; }
 
-/* Список данных со звуковыми датчиками */
+/* Seznam dat se zvukovými senzory / Data list with sound sensors */
 ul {
     list-style: none;
     padding: 0;

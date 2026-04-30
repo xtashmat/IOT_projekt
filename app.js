@@ -1,23 +1,23 @@
-// --- Инициализация переменных ---
-let isAutoMode = false; // По умолчанию ручной режим
+// --- Inicializace proměnných / Variable Initialization ---
+let isAutoMode = false; // Ve výchozím stavu manuální režim / Manual mode by default
 let ledOn = false;
 
-// Элементы DOM
+// DOM elementy / DOM Elements
 const currentModeText = document.getElementById('currentMode');
 const autoWarning = document.getElementById('autoWarning');
 const btnRequestData = document.getElementById('btnRequestData');
 const ledStatusText = document.getElementById('ledStatus');
 
-// --- Функции переключения режимов ---
+// --- Funkce pro přepínání režimů / Mode switching functions ---
 
 function setAutoMode() {
     isAutoMode = true;
     currentModeText.innerText = "Automatický";
     currentModeText.className = "mode-auto";
-    autoWarning.style.display = "block"; // Показываем предупреждение об автоматике
-    btnRequestData.style.display = "none"; // Прячем кнопку запроса (в авто данные идут сами)
+    autoWarning.style.display = "block"; // Zobrazí varování o automatickém režimu / Show auto mode warning
+    btnRequestData.style.display = "none"; // Skryje tlačítko pro vyžádání dat / Hide data request button
 
-    // Включаем симуляцию "автоматического" обновления данных
+    // Spustí simulaci automatické aktualizace dat / Start auto-update simulation
     startAutoUpdates();
 }
 
@@ -26,14 +26,14 @@ function setManualMode() {
     currentModeText.innerText = "Manuální";
     currentModeText.className = "mode-manual";
     autoWarning.style.display = "none";
-    btnRequestData.style.display = "inline-block"; // Показываем кнопку запроса
+    btnRequestData.style.display = "inline-block"; // Zobrazí tlačítko pro vyžádání dat / Show data request button
 
-    // Очищаем значения (по требованию MVP в ручном режиме только по запросу)
+    // Vymaže hodnoty (v manuálním režimu se aktualizují pouze na vyžádání) / Clear values (in manual mode, update only on request)
     document.getElementById('tempValue').innerText = "--";
     document.getElementById('lightValue').innerText = "--";
 }
 
-// --- Функции управления LED ---
+// --- Funkce pro ovládání LED / LED control functions ---
 
 function toggleLed() {
     if (isAutoMode) {
@@ -42,22 +42,22 @@ function toggleLed() {
     }
     ledOn = !ledOn;
     ledStatusText.innerText = ledOn ? "Zapnuto" : "Vypnuto";
-    // Тут в будущем будет отправка команды на Python API
+    // Zde v budoucnu přidáme odeslání příkazu do Python API / Future spot for sending commands to Python API
 }
 
-// --- Симуляция данных (API) ---
+// --- Simulace dat (API) / Data simulation (API) ---
 
 function updateSensorData() {
-    // Генерируем случайные числа для теста
+    // Generuje náhodná čísla pro testování / Generate random numbers for testing
     const temp = (Math.random() * (25 - 20) + 20).toFixed(1);
     const light = Math.floor(Math.random() * 1000);
 
     document.getElementById('tempValue').innerText = temp;
     document.getElementById('lightValue').innerText = light;
 
-    // Логика автоматики (ES_1 на основе ES_2)
+    // Logika automatického režimu (ES_1 na základě ES_2) / Auto mode logic (ES_1 based on ES_2)
     if (isAutoMode) {
-        if (light < 300) { // Порог освещенности
+        if (light < 300) { // Práh osvětlení / Lighting threshold
             ledStatusText.innerText = "Zapnuto (Auto)";
         } else {
             ledStatusText.innerText = "Vypnuto (Auto)";
@@ -65,14 +65,14 @@ function updateSensorData() {
     }
 }
 
-// --- Привязка событий к кнопкам ---
+// --- Přiřazení událostí k tlačítkům / Binding events to buttons ---
 
 document.getElementById('btnAuto').addEventListener('click', setAutoMode);
 document.getElementById('btnManual').addEventListener('click', setManualMode);
 document.getElementById('btnLedToggle').addEventListener('click', toggleLed);
 btnRequestData.addEventListener('click', updateSensorData);
 
-// Запуск симуляции обновлений раз в 3 секунды
+// Spustí simulaci aktualizace dat každé 3 sekundy / Start data update simulation every 3 seconds
 function startAutoUpdates() {
     if (isAutoMode) {
         updateSensorData();
